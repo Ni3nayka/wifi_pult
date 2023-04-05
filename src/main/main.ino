@@ -15,15 +15,18 @@
 my_display monitor;
 
 void setup() {
+  delay(1000);
   Serial.begin(9600);
   setup_multiplexer();
   monitor.setup();
+  monitor.hello();
 }
 
 void loop() {
-  for (int i = 0; i<16; i++) {
-    Serial.print(read_multiplexer(i));
-    Serial.print(" ");
-  }
-  Serial.println();
+//  for (int i = 0; i<16; i++) {
+//    Serial.print(read_multiplexer(i));
+//    Serial.print(" ");
+//  }
+//  Serial.println();
+  monitor.joystick_mode(read_multiplexer(0),read_multiplexer(1),read_multiplexer(2),read_multiplexer(3));
 }
