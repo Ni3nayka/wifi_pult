@@ -1,5 +1,4 @@
-/*
- * code write for project:
+/* * code write for project:
  * https://github.com/Ni3nayka/wifi_pult
  * 
  * author: Egor Bakay <egor_bakay@inbox.ru> https://github.com/Ni3nayka/
@@ -9,10 +8,11 @@
 
 // Board: LOLIN(WEMOS) D1 R2 & mini
 
-#include "multiplexer.h"
+#include "joystick.h"
 #include "display.h"
 
 my_display monitor;
+my_joystick joystick;
 
 void setup() {
   delay(1000);
@@ -23,10 +23,8 @@ void setup() {
 }
 
 void loop() {
-//  for (int i = 0; i<16; i++) {
-//    Serial.print(read_multiplexer(i));
-//    Serial.print(" ");
-//  }
-//  Serial.println();
-  monitor.joystick_mode(read_multiplexer(0),read_multiplexer(1),read_multiplexer(2),read_multiplexer(3));
+  joystick.update();
+  //joystick_mode(int xl=0, int yl=0, int xr=0, int yr=0, int button_jl=0, int button_jr=0, int button_l=0, int button_r=0, bool connect=0) {
+  monitor.joystick_mode(joystick.LX,joystick.LY,joystick.RX,joystick.RY,joystick.LZ,joystick.RZ,joystick.LB,joystick.RB);
+  joystick.print_multiplexer();
 }

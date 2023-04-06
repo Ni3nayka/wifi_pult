@@ -17,6 +17,8 @@
 #define MULTIPLEXER_PIN_S3 D0
 #define MULTIPLEXER_PIN_A A0
 
+#define VOLTAGE_PIN 8
+
 void setup_multiplexer() {
   pinMode(MULTIPLEXER_PIN_A,OUTPUT);
   pinMode(MULTIPLEXER_PIN_S0,OUTPUT);
@@ -33,4 +35,8 @@ int read_multiplexer(int number) {
   digitalWrite(MULTIPLEXER_PIN_S3,(number>>3)%2);
   delay(1);
   return analogRead(MULTIPLEXER_PIN_A);
+}
+
+float voltage() {
+  return read_multiplexer(VOLTAGE_PIN);
 }

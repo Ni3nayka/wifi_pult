@@ -55,7 +55,7 @@ class my_display {
       for (int i = 0; i<21; i++) {
         display.print("#");
         display.display();
-        delay(100);
+        delay(50);
       }
       display.setCursor(20, 45);
       display.println("Start joystick");
@@ -95,7 +95,7 @@ class my_display {
       display.print("Right:");
       display.setCursor(86, 29);
       display.print("X: ");
-      display.print(xl);
+      display.print(xr);
       display.setCursor(86, 38);
       display.print("Y: ");
       display.print(yr);
